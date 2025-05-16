@@ -1,4 +1,5 @@
 <template>
+  
   <div class="p-4 max-w-xl mx-auto">
     <h1 class="text-2xl font-bold mb-4">Mes Tâches</h1>
     <InputTodo @add="addTodo" />
@@ -15,9 +16,10 @@
 const todos = ref([]);
 const supabase = useSupabaseClient()
 
+const user = useSupabaseUser()
 
 const fetchTodos = async () => {
-  const { data } = await supabase.from('todos').select('title');
+  const { data } = await supabase.from('todos').select('id,title, completed');
   todos.value = data || [];
 };
 

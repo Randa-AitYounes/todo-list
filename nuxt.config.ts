@@ -7,8 +7,11 @@ export default defineNuxtConfig({
   ui: {
     fonts: false
   },
-   supabase: {
-    redirect: false
+  supabase: {
+    redirectOptions: {
+    login: '/login',
+    callback: '/home'  
+  }
   }
  
 })
